@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="缘来1.多个js文件如果互相依赖，需要把依赖性最大的文件最后加载 2.js文件在加载的时候会造成阻塞，阻止后面代码运行 引入1&amp;lt;script src=&quot;js/require.js&quot; defer async=&quot;true&quot;&amp;gt;&amp;lt;/script&amp;gt; //异步加载，ie只支持defer属性 加载自己的文件1&amp;lt;script src=&quot;js/require.js&quot; data-main">
+<meta name="keywords" content="require">
+<meta property="og:type" content="article">
+<meta property="og:title" content="requirejs">
+<meta property="og:url" content="http://yoursite.com/2017/08/09/requirejs/index.html">
+<meta property="og:site_name" content="李琪的博客">
+<meta property="og:description" content="缘来1.多个js文件如果互相依赖，需要把依赖性最大的文件最后加载 2.js文件在加载的时候会造成阻塞，阻止后面代码运行 引入1&amp;lt;script src=&quot;js/require.js&quot; defer async=&quot;true&quot;&amp;gt;&amp;lt;/script&amp;gt; //异步加载，ie只支持defer属性 加载自己的文件1&amp;lt;script src=&quot;js/require.js&quot; data-main">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-24T08:49:13.619Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="requirejs">
+<meta name="twitter:description" content="缘来1.多个js文件如果互相依赖，需要把依赖性最大的文件最后加载 2.js文件在加载的时候会造成阻塞，阻止后面代码运行 引入1&amp;lt;script src=&quot;js/require.js&quot; defer async=&quot;true&quot;&amp;gt;&amp;lt;/script&amp;gt; //异步加载，ie只支持defer属性 加载自己的文件1&amp;lt;script src=&quot;js/require.js&quot; data-main">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>requirejs</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="http://www.bodesports.com/">项目</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2017/10/23/vue2.0搭建脚手架/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2017/06/03/common/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2017/08/09/requirejs/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2017/08/09/requirejs/&text=requirejs"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2017/08/09/requirejs/&title=requirejs"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2017/08/09/requirejs/&is_video=false&description=requirejs"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=requirejs&body=Check out this article: http://yoursite.com/2017/08/09/requirejs/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2017/08/09/requirejs/&title=requirejs"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2017/08/09/requirejs/&title=requirejs"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2017/08/09/requirejs/&title=requirejs"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2017/08/09/requirejs/&title=requirejs"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2017/08/09/requirejs/&name=requirejs&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#缘来"><span class="toc-number">1.</span> <span class="toc-text">缘来</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#引入"><span class="toc-number">2.</span> <span class="toc-text">引入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#加载自己的文件"><span class="toc-number">3.</span> <span class="toc-text">加载自己的文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在主模块配置要加载的文件"><span class="toc-number">4.</span> <span class="toc-text">在主模块配置要加载的文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下例是主模块a调用b和c文件"><span class="toc-number">5.</span> <span class="toc-text">下例是主模块a调用b和c文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#a-js"><span class="toc-number">5.1.</span> <span class="toc-text">a.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#b-js"><span class="toc-number">5.2.</span> <span class="toc-text">b.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#c-js"><span class="toc-number">5.3.</span> <span class="toc-text">c.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#c-js-1"><span class="toc-number">5.4.</span> <span class="toc-text">c.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#d-js"><span class="toc-number">5.5.</span> <span class="toc-text">d.js</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#引入不符合AMD规范的文件"><span class="toc-number">6.</span> <span class="toc-text">引入不符合AMD规范的文件</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        requirejs
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">李琪的博客</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2017-08-09T08:40:06.000Z" itemprop="datePublished">2017-08-09</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/require/">require</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="缘来"><a href="#缘来" class="headerlink" title="缘来"></a><strong>缘来</strong></h2><p>1.多个js文件如果互相依赖，需要把依赖性最大的文件最后加载</p>
+<p>2.js文件在加载的时候会造成阻塞，阻止后面代码运行</p>
+<h2 id="引入"><a href="#引入" class="headerlink" title="引入"></a><strong>引入</strong></h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/require.js"</span> <span class="attr">defer</span> <span class="attr">async</span>=<span class="string">"true"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span> //异步加载，ie只支持defer属性</span><br></pre></td></tr></table></figure>
+<h2 id="加载自己的文件"><a href="#加载自己的文件" class="headerlink" title="加载自己的文件"></a><strong>加载自己的文件</strong></h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/require.js"</span> <span class="attr">data-main</span>=<span class="string">"a"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span> data-main:指定网页程序的主模块</span><br></pre></td></tr></table></figure>
+<h2 id="在主模块配置要加载的文件"><a href="#在主模块配置要加载的文件" class="headerlink" title="在主模块配置要加载的文件"></a>在主模块配置要加载的文件</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#如果不写路径，默认与主文件在同一目录</span><br><span class="line"><span class="built_in">require</span>.config(&#123;</span><br><span class="line">	paths:&#123;</span><br><span class="line">		<span class="string">"a"</span>:<span class="string">"a"</span>,</span><br><span class="line">		<span class="string">"b"</span>:<span class="string">"b"</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br><span class="line">#如果和入口文件不在同一目录，两种解决方案</span><br><span class="line">	#在paths里写上文件路径</span><br><span class="line">    #在baseUrl配置基目录</span><br><span class="line"><span class="built_in">require</span>.config(&#123;</span><br><span class="line">    baseUrl:<span class="string">'js/'</span>,</span><br><span class="line">    paths:&#123;</span><br><span class="line">        <span class="string">"a"</span>:<span class="string">"a"</span>,</span><br><span class="line">		<span class="string">"b"</span>:<span class="string">"b"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="下例是主模块a调用b和c文件"><a href="#下例是主模块a调用b和c文件" class="headerlink" title="下例是主模块a调用b和c文件"></a>下例是主模块a调用b和c文件</h2><p>如果主模块（入口js）依赖其他模块，要用AMD定义的require（）函数</p>
+<h3 id="a-js"><a href="#a-js" class="headerlink" title="a.js"></a>a.js</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//等a和b模块加载完成（异步运行，不会影响之后的加载）</span></span><br><span class="line"><span class="comment">//执行回调（加载的模块会以参数的形式传入回调），</span></span><br><span class="line"><span class="built_in">require</span>([<span class="string">"b"</span>,<span class="string">"c"</span>],<span class="function"><span class="keyword">function</span>(<span class="params">b,c</span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(b.add1(<span class="number">3</span>,<span class="number">5</span>) + c.reduce(<span class="number">1</span>))</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="b-js"><a href="#b-js" class="headerlink" title="b.js"></a>b.js</h3><p>require采用AMD规范，所以必须用defined（）函数定义</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//b.js</span></span><br><span class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> add = <span class="function"><span class="keyword">function</span>(<span class="params">x,y</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x+y</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span>&#123;</span><br><span class="line">    add1:add</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="c-js"><a href="#c-js" class="headerlink" title="c.js"></a>c.js</h3><p>不依赖其他模块的内容，可以写在defined函数外</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//c.js</span></span><br><span class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span>&#123;</span><br><span class="line">    one:<span class="number">1</span>,</span><br><span class="line">    two:<span class="number">2</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">z</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> test(z)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(test(<span class="string">'I am test'</span>))</span><br></pre></td></tr></table></figure>
+<h3 id="c-js-1"><a href="#c-js-1" class="headerlink" title="c.js"></a>c.js</h3><p>如果依赖的模块又依赖其他模块。那么define（）的第一个参数，就是依赖的模块</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// c.js</span></span><br><span class="line">define([<span class="string">'d'</span>],<span class="function"><span class="keyword">function</span>(<span class="params">d</span>)</span>&#123;</span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">reduce</span>(<span class="params">z</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> d.num - z</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span>&#123;</span><br><span class="line">    reduce</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="d-js"><a href="#d-js" class="headerlink" title="d.js"></a>d.js</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span>&#123;</span><br><span class="line">		num:<span class="number">0</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="引入不符合AMD规范的文件"><a href="#引入不符合AMD规范的文件" class="headerlink" title="引入不符合AMD规范的文件"></a>引入不符合AMD规范的文件</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"># deps:[] 依赖的模块</span><br><span class="line"># exports 暴露出来的变量</span><br><span class="line"><span class="built_in">require</span>.config(&#123;</span><br><span class="line">	baseUrl:<span class="string">'js/'</span>,</span><br><span class="line">	paths:&#123;</span><br><span class="line">		<span class="string">"b"</span>:<span class="string">"b"</span>,</span><br><span class="line">		<span class="string">"c"</span>:<span class="string">"c"</span>,</span><br><span class="line">		<span class="string">'swiper'</span>:<span class="string">'https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper'</span>,</span><br><span class="line">		<span class="string">'jquery'</span>:<span class="string">'jquery.min'</span>,</span><br><span class="line">		<span class="string">'underscore'</span>:<span class="string">'underscore'</span>,</span><br><span class="line">		<span class="string">'backbone'</span>:<span class="string">'http://backbonejs.org/backbone'</span></span><br><span class="line">		</span><br><span class="line">	&#125;,</span><br><span class="line">	shim:&#123; <span class="comment">//引入不符合AMD规范的文件</span></span><br><span class="line">		<span class="string">'underscore'</span>:&#123;</span><br><span class="line">　　　　　　　　exports: <span class="string">'_'</span></span><br><span class="line">　　　　　　&#125;,</span><br><span class="line"></span><br><span class="line">　　　　　　<span class="string">'backbone'</span>: &#123;</span><br><span class="line">　　　　　　　　deps: [<span class="string">'underscore'</span>, <span class="string">'jquery'</span>],<span class="comment">//依赖的模块</span></span><br><span class="line">　　　　　　　　exports: <span class="string">'Backbone'</span> <span class="comment">//暴露的变量</span></span><br><span class="line">　　　　　　&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">require</span>([<span class="string">"b"</span>,<span class="string">"c"</span>,<span class="string">'swiper'</span>,<span class="string">'jquery'</span>,<span class="string">'backbone'</span>],<span class="function"><span class="keyword">function</span>(<span class="params">b,c,swp,$,backbone</span>)</span>&#123;</span><br><span class="line"> 	<span class="built_in">console</span>.log(backbone)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="http://www.bodesports.com/">项目</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#缘来"><span class="toc-number">1.</span> <span class="toc-text">缘来</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#引入"><span class="toc-number">2.</span> <span class="toc-text">引入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#加载自己的文件"><span class="toc-number">3.</span> <span class="toc-text">加载自己的文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在主模块配置要加载的文件"><span class="toc-number">4.</span> <span class="toc-text">在主模块配置要加载的文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下例是主模块a调用b和c文件"><span class="toc-number">5.</span> <span class="toc-text">下例是主模块a调用b和c文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#a-js"><span class="toc-number">5.1.</span> <span class="toc-text">a.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#b-js"><span class="toc-number">5.2.</span> <span class="toc-text">b.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#c-js"><span class="toc-number">5.3.</span> <span class="toc-text">c.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#c-js-1"><span class="toc-number">5.4.</span> <span class="toc-text">c.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#d-js"><span class="toc-number">5.5.</span> <span class="toc-text">d.js</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#引入不符合AMD规范的文件"><span class="toc-number">6.</span> <span class="toc-text">引入不符合AMD规范的文件</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2017/08/09/requirejs/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2017/08/09/requirejs/&text=requirejs"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2017/08/09/requirejs/&title=requirejs"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2017/08/09/requirejs/&is_video=false&description=requirejs"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=requirejs&body=Check out this article: http://yoursite.com/2017/08/09/requirejs/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2017/08/09/requirejs/&title=requirejs"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2017/08/09/requirejs/&title=requirejs"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2017/08/09/requirejs/&title=requirejs"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2017/08/09/requirejs/&title=requirejs"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2017/08/09/requirejs/&name=requirejs&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2018 李琪
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="http://www.bodesports.com/">项目</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
