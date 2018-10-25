@@ -15,7 +15,7 @@
 <meta property="og:description" content="平时我们写代码，每次写完之后要看运行结果，都得重新刷新浏览器，如果想实现自动刷新，还需要和webpack配合做一些配置，今天给大家安利一个非常简单的插件live-server，只需要一条命令，就可以实现自动刷新，不需要每次去浏览器再点刷新啦~~ 安装live-srver1npm install live-server -g   //全局安装 运行命令1live-server 运行之后，就可以启动服">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/pack.jpg">
-<meta property="og:updated_time" content="2018-10-25T03:08:33.575Z">
+<meta property="og:updated_time" content="2018-10-25T03:15:31.132Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="live-srver快速搭建本地服务">
 <meta name="twitter:description" content="平时我们写代码，每次写完之后要看运行结果，都得重新刷新浏览器，如果想实现自动刷新，还需要和webpack配合做一些配置，今天给大家安利一个非常简单的插件live-server，只需要一条命令，就可以实现自动刷新，不需要每次去浏览器再点刷新啦~~ 安装live-srver1npm install live-server -g   //全局安装 运行命令1live-server 运行之后，就可以启动服">
@@ -103,7 +103,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装live-srver"><span class="toc-number">1.</span> <span class="toc-text">安装live-srver</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运行命令"><span class="toc-number">2.</span> <span class="toc-text">运行命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更改默认端口"><span class="toc-number">3.</span> <span class="toc-text">更改默认端口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#执行自己指定的命令"><span class="toc-number">4.</span> <span class="toc-text">执行自己指定的命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#新建package-json"><span class="toc-number">5.</span> <span class="toc-text">新建package.json</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装live-srver"><span class="toc-number">1.</span> <span class="toc-text">安装live-srver</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运行命令"><span class="toc-number">2.</span> <span class="toc-text">运行命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更改默认端口"><span class="toc-number">3.</span> <span class="toc-text">更改默认端口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#执行自己指定的命令"><span class="toc-number">4.</span> <span class="toc-text">执行自己指定的命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新建package-json"><span class="toc-number">5.</span> <span class="toc-text">新建package.json</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -143,17 +143,16 @@
 
   <div class="content" itemprop="articleBody">
     <p>平时我们写代码，每次写完之后要看运行结果，都得重新刷新浏览器，如果想实现自动刷新，还需要和webpack配合做一些配置，今天给大家安利一个非常简单的插件live-server，只需要一条命令，就可以实现自动刷新，不需要每次去浏览器再点刷新啦~~</p>
-<h3 id="安装live-srver"><a href="#安装live-srver" class="headerlink" title="安装live-srver"></a>安装live-srver</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install live-server -g   //全局安装</span><br></pre></td></tr></table></figure>
-<h3 id="运行命令"><a href="#运行命令" class="headerlink" title="运行命令"></a>运行命令</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">live-server</span><br></pre></td></tr></table></figure>
+<h2 id="安装live-srver"><a href="#安装live-srver" class="headerlink" title="安装live-srver"></a>安装live-srver</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install live-server -g   //全局安装</span><br></pre></td></tr></table></figure>
+<h2 id="运行命令"><a href="#运行命令" class="headerlink" title="运行命令"></a>运行命令</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">live-server</span><br></pre></td></tr></table></figure>
 <p>运行之后，就可以启动服务啦~ 默认端口号为8080</p>
-<h3 id="更改默认端口"><a href="#更改默认端口" class="headerlink" title="更改默认端口"></a>更改默认端口</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">live-server --port=8081 	8081是你要更改的端口号</span><br></pre></td></tr></table></figure>
+<h2 id="更改默认端口"><a href="#更改默认端口" class="headerlink" title="更改默认端口"></a>更改默认端口</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">live-server --port=8081 	8081是你要更改的端口号</span><br></pre></td></tr></table></figure>
 <p>如果觉得这句话太长太繁琐，可以指定自己的命令</p>
-<h3 id="执行自己指定的命令"><a href="#执行自己指定的命令" class="headerlink" title="执行自己指定的命令"></a>执行自己指定的命令</h3><p>如果没有package.json，先新建一个</p>
-<h3 id="新建package-json"><a href="#新建package-json" class="headerlink" title="新建package.json"></a>新建package.json</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm init -y  //快捷方式，直接生成</span><br><span class="line">npm init  	//填写配置</span><br></pre></td></tr></table></figure>
+<h2 id="执行自己指定的命令"><a href="#执行自己指定的命令" class="headerlink" title="执行自己指定的命令"></a>执行自己指定的命令</h2><p>如果没有package.json，先新建一个</p>
+<h2 id="新建package-json"><a href="#新建package-json" class="headerlink" title="新建package.json"></a>新建package.json</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm init -y  //快捷方式，直接生成</span><br><span class="line">npm init  	//填写配置</span><br></pre></td></tr></table></figure>
 <p>然后在package.json里找到script部分，配置一个start命令</p>
 <p><img src="/images/pack.jpg" alt="script部分"></p>
 <p>然后每次运行  npm run start就可以 ( 也可以省略run )</p>
-<p>[^李琪]: </p>
 
   </div>
 </article>
@@ -180,7 +179,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装live-srver"><span class="toc-number">1.</span> <span class="toc-text">安装live-srver</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运行命令"><span class="toc-number">2.</span> <span class="toc-text">运行命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更改默认端口"><span class="toc-number">3.</span> <span class="toc-text">更改默认端口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#执行自己指定的命令"><span class="toc-number">4.</span> <span class="toc-text">执行自己指定的命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#新建package-json"><span class="toc-number">5.</span> <span class="toc-text">新建package.json</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装live-srver"><span class="toc-number">1.</span> <span class="toc-text">安装live-srver</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运行命令"><span class="toc-number">2.</span> <span class="toc-text">运行命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更改默认端口"><span class="toc-number">3.</span> <span class="toc-text">更改默认端口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#执行自己指定的命令"><span class="toc-number">4.</span> <span class="toc-text">执行自己指定的命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新建package-json"><span class="toc-number">5.</span> <span class="toc-text">新建package.json</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
