@@ -7,16 +7,16 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="对象就是属性的集合，一切皆对象。数组，函数的typeof都是对象 每个函数都有一个默认的属性prototype，这个属性就是原型对象，原型对象中一般存放实例化对象公用的方法，它默认只有一个constructor属性， constructor指向这个函数本身 实例化对象的 proto  指向构造函数的原型对象 实例化对象的 proto 的constructor 指向 构造函数的原型对象的constr">
-<meta name="keywords" content="构造函数对象理解">
+<meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="构造函数">
-<meta property="og:url" content="http://yoursite.com/2018/10/29/构造函数/index.html">
+<meta property="og:title" content="构造函数对象">
+<meta property="og:url" content="http://yoursite.com/2018/10/29/构造函数对象/index.html">
 <meta property="og:site_name" content="李琪的博客">
 <meta property="og:description" content="对象就是属性的集合，一切皆对象。数组，函数的typeof都是对象 每个函数都有一个默认的属性prototype，这个属性就是原型对象，原型对象中一般存放实例化对象公用的方法，它默认只有一个constructor属性， constructor指向这个函数本身 实例化对象的 proto  指向构造函数的原型对象 实例化对象的 proto 的constructor 指向 构造函数的原型对象的constr">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-29T10:14:05.739Z">
+<meta property="og:updated_time" content="2018-10-29T10:16:35.337Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="构造函数">
+<meta name="twitter:title" content="构造函数对象">
 <meta name="twitter:description" content="对象就是属性的集合，一切皆对象。数组，函数的typeof都是对象 每个函数都有一个默认的属性prototype，这个属性就是原型对象，原型对象中一般存放实例化对象公用的方法，它默认只有一个constructor属性， constructor指向这个函数本身 实例化对象的 proto  指向构造函数的原型对象 实例化对象的 proto 的constructor 指向 构造函数的原型对象的constr">
     
     
@@ -37,7 +37,7 @@
         
     
     <!-- title -->
-    <title>构造函数</title>
+    <title>构造函数对象</title>
     <!-- styles -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- persian styles -->
@@ -87,16 +87,16 @@
     <br/>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2018/10/29/构造函数/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2018/10/29/构造函数/&text=构造函数"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2018/10/29/构造函数/&title=构造函数"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2018/10/29/构造函数/&is_video=false&description=构造函数"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=构造函数&body=Check out this article: http://yoursite.com/2018/10/29/构造函数/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2018/10/29/构造函数/&title=构造函数"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2018/10/29/构造函数/&title=构造函数"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2018/10/29/构造函数/&title=构造函数"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2018/10/29/构造函数/&title=构造函数"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2018/10/29/构造函数/&name=构造函数&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2018/10/29/构造函数对象/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2018/10/29/构造函数对象/&text=构造函数对象"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2018/10/29/构造函数对象/&title=构造函数对象"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2018/10/29/构造函数对象/&is_video=false&description=构造函数对象"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=构造函数对象&body=Check out this article: http://yoursite.com/2018/10/29/构造函数对象/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2018/10/29/构造函数对象/&title=构造函数对象"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2018/10/29/构造函数对象/&title=构造函数对象"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2018/10/29/构造函数对象/&title=构造函数对象"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2018/10/29/构造函数对象/&title=构造函数对象"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2018/10/29/构造函数对象/&name=构造函数对象&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -113,7 +113,7 @@
   <header>
     
     <h1 class="posttitle" itemprop="name headline">
-        构造函数
+        构造函数对象
     </h1>
 
 
@@ -124,14 +124,14 @@
       </span>
       
     <div class="postdate">
-        <time datetime="2018-10-29T09:29:41.000Z" itemprop="datePublished">2018-10-29</time>
+        <time datetime="2018-10-29T10:16:06.000Z" itemprop="datePublished">2018-10-29</time>
     </div>
 
 
       
     <div class="article-tag">
         <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/构造函数对象理解/">构造函数对象理解</a>
+        <a class="tag-link" href="/tags/JavaScript/">JavaScript</a>
     </div>
 
 
@@ -177,16 +177,16 @@
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2018/10/29/构造函数/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2018/10/29/构造函数/&text=构造函数"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2018/10/29/构造函数/&title=构造函数"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2018/10/29/构造函数/&is_video=false&description=构造函数"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=构造函数&body=Check out this article: http://yoursite.com/2018/10/29/构造函数/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2018/10/29/构造函数/&title=构造函数"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2018/10/29/构造函数/&title=构造函数"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2018/10/29/构造函数/&title=构造函数"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2018/10/29/构造函数/&title=构造函数"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2018/10/29/构造函数/&name=构造函数&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2018/10/29/构造函数对象/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2018/10/29/构造函数对象/&text=构造函数对象"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2018/10/29/构造函数对象/&title=构造函数对象"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2018/10/29/构造函数对象/&is_video=false&description=构造函数对象"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=构造函数对象&body=Check out this article: http://yoursite.com/2018/10/29/构造函数对象/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2018/10/29/构造函数对象/&title=构造函数对象"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2018/10/29/构造函数对象/&title=构造函数对象"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2018/10/29/构造函数对象/&title=构造函数对象"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2018/10/29/构造函数对象/&title=构造函数对象"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2018/10/29/构造函数对象/&name=构造函数对象&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
